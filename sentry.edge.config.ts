@@ -17,4 +17,13 @@ Sentry.init({
   // Enable sending user PII (Personally Identifiable Information)
   // https://docs.sentry.io/platforms/javascript/guides/nextjs/configuration/options/#sendDefaultPii
   sendDefaultPii: true,
+
+  // Enable AI agent monitoring
+  streamGenAiSpans: true,
+
+  dataCollection: {
+    // Control data collection of LLMs and tools.
+    // For more info visit: https://docs.sentry.io/platforms/javascript/data-management/data-collected/
+    // genAI: { inputs: false, outputs: false },
+  },
 });
