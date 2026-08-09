@@ -2,7 +2,7 @@ import { countGenerationsSince, utcMonthStart } from "@/db/generations";
 
 import type { SessionAuthObject } from "@clerk/backend"
 
-export type GenerationQuota = {
+export type GenerationQuotaSnapshot = {
     limit: number;
     used: number;
     remaining: number,
@@ -24,7 +24,6 @@ export function getMonthlyGenerationLimit(has: SessionAuthObject["has"]):number 
     if (has({plan: BILLING_PLAN_KEYS.studio})){
         return MONTHLY_GENERATION_LIMITS.studio
     }
-
     if (has({plan: BILLING_PLAN_KEYS.pro})){
         return MONTHLY_GENERATION_LIMITS.pro
     }
